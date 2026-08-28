@@ -42,9 +42,20 @@
 - provisional: branch / merge は、多元宇宙間の境界を構成する意思体を後世の人類が工学的に統制する技術として、『アンフォールドザワールド』の宇宙論と接続できる可能性がある。
 - thematic note: 「神は死んだ。そして人間はAIという新しい神を発明した」という思想を世界設定の核の一つとして検討している。
 
+## 『マイニングファームにて』
+
+- status: existing short fiction / saga inclusion author-note
+- repository text: [`works/mining-farm-nite/mining-farm-nite.md`](works/mining-farm-nite/mining-farm-nite.md)
+- approximate era: unknown
+- key observation: ファイトマイニングを行う農場と、そこに常駐する人間の管理人・フィジカルAIが登場する。
+- key observation: ネットワーク接続されたAIモデルと、障害時に作動するローカルのバックアップモデルが同一の身体を使う。
+- key observation: 植物と菌が重元素を取り込み、「金属のようにふるまうもの」を育てている可能性が示される。
+- note: Moonnet Saga内での年代・ユニバース・ムーンネットとの具体的な接続は、現時点では未確定。
+
 ## 『タカシ』
 
 - status: existing short fiction
+- repository text: [`works/takashi/takashi.md`](works/takashi/takashi.md)
 - approximate era: 2100年より後くらい（author-note）
 - key observation: ムーンネット創始者の孫「タカシクロダ」の細胞から、最初の「末裔」が作られ、その後同じ細胞から複数パターンの末裔がバイオプリンティングされる。
 - key observation: 末裔は人間から作られたが、人間とは異なる存在として自己認識している。
