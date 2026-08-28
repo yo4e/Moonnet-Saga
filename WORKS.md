@@ -26,14 +26,14 @@ Moonnet Saga の作品カタログ。
 |ボタニカルアリス|`confirmed`|未収録|確認中|All Rights Reserved|
 |十＋十|`possible`|未収録|執筆中|All Rights Reserved|
 |マイニングファームにて|`possible`|[読む](works/mining-farm-nite/)|初出確認中|All Rights Reserved|
-|アウトサイドフィールズ|`possible`|未収録|SF雑誌オルタニア Vol.18（2022）|All Rights Reserved|
-|いいじいえいあい|`possible`|未収録|SF雑誌オルタニア 増刊号 vol.9.999（2021）|All Rights Reserved|
+|アウトサイドフィールズ|`possible`|[読む](works/outside-fields/)|SF雑誌オルタニア Vol.18（2022）|All Rights Reserved|
+|いいじいえいあい|`possible`|[読む](works/easy-ai/)|SF雑誌オルタニア 増刊号 vol.9.999（2021）|All Rights Reserved|
 |砂糖楓|—|未収録|てきすぽどーじん6号（2013）|All Rights Reserved|
 |タカシ|`confirmed`|[読む](works/takashi/)|SF雑誌オルタニア vol.7［後継種］（2018）|All Rights Reserved|
 |虚偽記憶の共犯者|—|未収録|SF雑誌オルタニア バイキング増刊号9.5（2020）|All Rights Reserved|
 |おとなになれないきみたちとふたたび|—|未収録|SF雑誌オルタニア vol.7.5（2019）|All Rights Reserved|
 |昂奮ブロマイド|—|未収録|SF雑誌オルタニア vol.6（2018）|All Rights Reserved|
-|ワンダリングリング|`possible`|未収録|『ワンダリングリング 山田佳江SF短編集』（2022）書き下ろし|All Rights Reserved|
+|ワンダリングリング|`possible`|[読む](works/wandering-ring/)|『ワンダリングリング 山田佳江SF短編集』（2022）書き下ろし|All Rights Reserved|
 
 ## 公開作品のディレクトリ形式
 
