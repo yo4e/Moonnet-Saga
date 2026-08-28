@@ -5,349 +5,630 @@
 > [!IMPORTANT]
 > この文書は、公開情報・公式資料・現行リポジトリをもとにした実務上のリスク整理です。個別案件についての法律意見ではありません。契約書の解釈、権利帰属、侵害の成否など最終判断が必要な事項は、弁護士・弁理士等の専門家確認を前提とします。
 
-## 結論
+## Executive summary
 
-現時点の Moonnet-Saga は、`RIGHTS.md` で **All Rights Reserved** とし、CC BY-SA 4.0 は将来構想に留め、Saga所属・Canon・公開・オープンライセンス対象を別軸としている。この基本設計は安全側であり、**今すぐCC BY-SA 4.0へ移行しない限り、構造上の重大な問題は見つからなかった**。
+現時点の Moonnet-Saga は、`RIGHTS.md` で **All Rights Reserved** とし、CC BY-SA 4.0 は将来構想に留め、次の状態を別軸として管理している。
 
-ただし、オープン化以前に確認すべき重要事項がある。優先順位は次のとおり。
+- Moonnet Saga に属するか
+- Canon か
+- GitHub で公開するか
+- オープンライセンス対象か
 
-1. **High / immediate check — KDP Select / Kindle Unlimited の現在の登録状態**
-2. **High — 過去の掲載・出版・電子配信について、契約・出版権・独占許諾の有無を作品単位で確認**
-3. **High before open licensing — CC対象を作品・版・資料単位で明示し、権利確認済みのものだけにライセンスを付ける**
-4. **Medium — public GitHub と All Rights Reserved の関係を文言上もう少し正確にする**
-5. **Medium — 将来外部Contributionを受ける前に inbound license / CONTRIBUTING 方針を決める**
-6. **Medium — `Read it. Fork it. Build your own branch.` 等、将来構想と現在の許諾を誤認し得る表現を整理する**
-7. **Low/Medium — Moonnet Saga / ムーンネットサーガ等の商標スクリーニングを正式に行う**
+この分離は妥当であり、**リポジトリ全体へ一括してCCライセンスを付けない現在の設計は維持すべき**。
 
-## 1. KDP Select / Kindle Unlimited — 最優先確認
+現時点で見つかった優先事項は次のとおり。
 
-### リスク
+|優先度|論点|要点|
+|---|---|---|
+|High / current check|過去の掲載・出版・配信契約|public GitHub自体が一定の利用許諾を伴うため、CC化前だけでなく現在の全文公開についても権利確認が必要|
+|High if Select active|KDP Select / Kindle Unlimited|抜粋公開は一律禁止ではないが、現在公開している短編集収録3作は合計約34.7%で「少量サンプル」とは言いにくい。現行契約上の扱いは要確認|
+|High before open licensing|CC対象の限定|作品・版・設定資料を明示列挙し、権利確認済みだけを対象にする|
+|Medium|GitHub Termsの明示|public repoではGitHub機能上のFork等に加え、2026年のTermsではGitHub/関連会社のAI・ML訓練等に必要なライセンスも付与される|
+|Medium before external PRs|Contribution権利処理|第三者の創作的PRを将来再ライセンスできるよう、受入条件またはCLA等を先に決める|
+|Medium|現行READMEの将来構想表現|「Read it. Fork it. Build your own branch.」等が、現在すでに二次利用可能だと切り取られて誤解される余地がある|
+|Low / Medium|名称・商標|完全一致の著名な同名は通常Web検索では確認できないが、J-PlatPatによる正式な類似検索は未完了|
 
-『ワンダリングリング 山田佳江SF短編集』は現在もKindleで販売されていることを公開情報から確認できる。また、2023年のセルフパブ読書記録には同書についてKindle Unlimited対象であった可能性を示す記述がある。ただし、**2026-08-29現在のKDP Select登録状態は公開情報だけでは確認できなかった**。
+**今すぐライセンスを変更する必要はない。**
+次の一手は、`works-rights-matrix.md` の「要確認」を埋めることである。
 
-Amazon KDP公式資料では、KDP Selectに登録した電子書籍はKindle Unlimitedに自動的に追加され、90日間の登録期間中、Kindle本のデジタル版は原則としてKindle Store独占とする必要がある。
+---
 
-Moonnet-Sagaでは現在、『ワンダリングリング』2022年版を出典とする次の全文を公開している。
+## 1. 現在の公開状態
+
+2026-08-29時点で、このリポジトリに作品本文として収録されているのは次の5作。
+
+- マイニングファームにて
+- アウトサイドフィールズ
+- いいじいえいあい
+- タカシ
+- ワンダリングリング
+
+リポジトリのGit treeを確認した範囲では、現在はMarkdownのみで、表紙画像・写真・音声・フォント等のバイナリ第三者素材は収録されていない。この点では現状の第三者素材リスクは比較的小さい。
+
+ただし、本文内の引用、編集者等の創作的寄与、過去の掲載契約まではGit treeだけでは判定できない。
+
+---
+
+## 2. KDP Select / Kindle Unlimited と「一部公開」
+
+### 結論
+
+**「KDP Selectなら作品の一部も一切公開できない」という理解は正確ではない。**
+
+Amazon自身の `Read Sample` はreflowable eBookについて通常10%を表示している。また、長年のKDPサポート案内では、外部サイトでのサンプル・抜粋について「約10%程度」が目安として案内されてきた事例が確認できる。
+
+一方、**2026年現在の公開KDP Select契約本文には「外部公開は10%まで可」という数値のsafe harborは明記されていない**。現行契約は、Select期間中に `Digital Book (or a book that is substantially similar)` をデジタル形式で他所に販売・配布できない、という書き方になっている。
+
+したがって、10%は実務上有力な目安ではあるが、現行契約本文だけから「10%以下なら必ず適法」と断定しない。
+
+### 『ワンダリングリング 山田佳江SF短編集』について
+
+Corpusにある2022年短編集版を文字数ベースで概算すると、8作品本文の合計は約46,204文字（段落間改行を含む単純計数）。
+
+|作品|概算文字数|短編集本文に占める割合|
+|---|---:|---:|
+|アウトサイドフィールズ|5,954|約12.9%|
+|いいじいえいあい|3,161|約6.8%|
+|砂糖楓|1,459|約3.2%|
+|タカシ（2022短編集版）|7,039|約15.2%|
+|虚偽記憶の共犯者|5,603|約12.1%|
+|おとなになれないきみたちとふたたび|3,273|約7.1%|
+|昂奮ブロマイド|12,822|約27.8%|
+|ワンダリングリング|6,893|約14.9%|
+
+現在Sagaで2022短編集版そのものを全文公開している3作、
 
 - アウトサイドフィールズ
 - いいじいえいあい
 - ワンダリングリング
 
-また『タカシ』も同短編集に収録されているが、Saga側の公開本文はオルタニア7号提出稿ベースであり、2022年短編集版とは本文差がある。
+の合計は**約34.7%**。
+
+このため、仮に『ワンダリングリング 山田佳江SF短編集』が現在KDP Select登録中であれば、これら3作の全文公開を「通常の10%前後の宣伝用サンプル」として当然に扱えるとは言いにくい。
+
+### 短編集特有の未確定点
+
+現行KDP資料は、複数作品を含む本についてもKDP Selectのガイドラインを満たす必要があり、Select登録にはKindle eBookのprimary contentについて必要な独占的権利を保有することを求めている。
+
+ただし公開契約文からは、**短編集に含まれる独立した短編1作の別公開が、常に「Digital Bookまたはsubstantially similar bookの配布」に当たるのか**を明確には読み取れない。
+
+したがって、Selectが現在有効なら、KDPサポートへ次の形で確認するのが最も確実。
+
+> 短編8作を収録したKDP Select登録中の短編集について、収録短編のうち数作を著者自身のWeb/GitHubで全文公開することはSelect exclusivityに抵触するか。短編集全体の約35%に相当するが、各短編は独立作品である。
+
+### 『タカシ』について
+
+Saga側の `works/takashi/text.md` はオルタニア7号提出稿ベースで、2022短編集版とは本文差がある。
+
+この版差はリスクを下げる可能性があるが、KDP Select契約には `substantially similar` という文言があるため、**版が違えば自動的に対象外**とも断定しない。
 
 ### 評価
 
-**High / current status dependent**
-
-KDP Selectが現在有効なら、同書の主要コンテンツをGitHubで全文公開することが独占要件と衝突する可能性がある。個々の短編を別媒体に公開した場合にどこまで「同じ電子書籍の主要コンテンツ」の独占条件に触れるかは、KDP契約・作品構成・版差を踏まえた確認が必要。
+**High if KDP Select currently active / otherwise Low**
 
 ### 対応
 
-- KDP Bookshelfで『ワンダリングリング 山田佳江SF短編集』の「KDP セレクトを管理」を開き、現在の登録期間を確認する。
-- Select登録中なら、GitHub全文公開との整合をKDP規約に照らして確認する。
-- 必要なら、Select更新停止／公開本文の一時撤去／別版扱いの検討を行う。
-- **この確認が終わるまで、同短編集収録作をCC BY-SA化しない。**
+- KDP Bookshelfで現在のSelect登録状態を確認
+- 登録中ならKDPサポートに短編集＋独立短編のケースとして確認
+- 回答をCorpus側の内部カルテに保存
+- 状態確認が終わるまでは、短編集収録版へのCC BY-SA適用は保留
+- Select非登録なら、この論点は原則として解消
 
 公式資料:
 
-- Amazon KDP「セルフ出版と KDP セレクト」: https://kdp.amazon.co.jp/ja_JP/select
-- Amazon KDP「KDP セレクトへの登録方法」: https://kdp.amazon.co.jp/ja_JP/help/topic/GD9PMU58BV24QFZ7
-- Amazon KDP「Kindle Unlimited」: https://kdp.amazon.co.jp/ja_JP/help/topic/G201537300
+- Amazon KDP Select: https://kdp.amazon.com/en_US/select
+- How to enroll in KDP Select: https://kdp.amazon.com/en_US/help/topic/GD9PMU58BV24QFZ7
+- KDP Terms and Conditions: https://kdp-eu.amazon.com/agreement
+- Read Sample: https://kdp.amazon.com/en_US/help/topic/G200644250
+- Guide to Kindle Content Quality (multi-work books): https://kdp.amazon.com/en_US/help/topic/G200952510
 
-## 2. オルタニア等の過去掲載・出版契約
+---
 
-### 確認できたこと
+## 3. 過去の掲載・出版・電子配信契約
 
-少なくとも『タカシ』は『SF雑誌オルタニア vol.7［後継種］』に掲載され、BCCKS、BOOK☆WALKER、Apple Books、楽天Kobo等で販売された履歴が確認できる。オルタニア作品は複数著者による雑誌・電子書籍として流通している。
+### なぜCC化前だけの問題ではないか
 
-著作者本人が著作権を持っている場合でも、日本の著作権法上、著作権は全部または一部を譲渡でき、利用許諾も可能であり、さらに出版権を設定すると出版権者が設定範囲の権利を専有し得る。したがって「自分が書いた作品」という事実だけでは、現在CCライセンスを付与できる範囲を確定できない。
+著作者本人が著作権を持っていても、著作権の譲渡、利用許諾、出版権の設定等があり得る。
+
+日本の著作権法には、
+
+- 第61条: 著作権の譲渡
+- 第63条: 著作物の利用の許諾
+- 第79条・第80条: 出版権
+
+がある。
+
+さらに現在のGitHub Termsでは、public repositoryにコンテンツを置くと、GitHubおよび他ユーザーへサービス提供上の一定のライセンスを付与する。そのため、過去の契約で独占的な公衆送信権等が設定されていた場合は、**CC BY-SAを付けていなくても現在のpublic全文公開に影響する可能性がある**。
+
+### オルタニア掲載作
+
+少なくとも次の作品には過去掲載歴がある。
+
+- アウトサイドフィールズ — SF雑誌オルタニア Vol.18（2022）
+- いいじいえいあい — SF雑誌オルタニア 増刊号 vol.9.999（2021）
+- タカシ — SF雑誌オルタニア vol.7［後継種］（2018）
+- 虚偽記憶の共犯者 — オルタニア バイキング増刊号9.5（2020）
+- おとなになれないきみたちとふたたび — オルタニア vol.7.5（2019）
+- 昂奮ブロマイド — オルタニア vol.6（2018）
+
+『タカシ』を含むオルタニア号は複数の電子書店で販売された履歴が確認できる。
+
+### 確認する資料
+
+作品単位で次を探す。
+
+- 投稿・寄稿時の募集要項
+- メール、DM、契約書
+- 紙・電子の出版権設定の有無
+- 独占／非独占
+- 公衆送信権、電子配信権、再配信権、二次利用
+- 契約期間・終了条件
+- 改稿版・再録版への適用範囲
+- 編集者等による創作的な本文変更
+
+契約資料が見つからない場合も「権利問題なし」と推測せず、`要確認` として残す。
 
 ### 評価
 
-**High before open licensing / Needs contract review**
+**High for currently published texts until basic history is confirmed / Needs contract review before CC activation**
 
-現在の公開そのものが問題であると示す資料は見つかっていない。しかし、CC BY-SA 4.0は広範な複製・改変・商用利用を取消不能で許諾するため、掲載時の条件確認なしに付与すべきではない。
-
-### 対応
-
-各作品について次を探す。
-
-- 投稿時・掲載時の募集要項
-- メール、DM、契約書、利用許諾
-- 紙・電子の出版権設定の有無
-- 独占／非独占の別
-- 電子配信権、再配信権、二次利用権
-- 契約期間・終了条件
-- 編集者等による本文への創作的修正の扱い
-
-契約書がない場合も「契約がない」と推測せず、当時の募集要項ややり取りをCorpus側の内部カルテに保存する。
-
-法令:
+公式資料:
 
 - e-Gov 著作権法: https://laws.e-gov.go.jp/law/345AC0000000048
-  - 第61条 著作権の譲渡
-  - 第63条 著作物の利用の許諾
-  - 第79条・第80条 出版権
+- KDP Intellectual Property Rights FAQ: https://kdp.amazon.com/en_US/help/topic/G200672400
 
-公開確認例:
+公開書誌の確認例:
 
 - BCCKS オルタニア vol.7: https://bccks.jp/bcck/157010/info
-- BOOK☆WALKER: https://bookwalker.jp/de0e074d1c-a6ac-4607-9f2c-279f2c1262e2/
+- BOOK☆WALKER オルタニア vol.7: https://bookwalker.jp/de0e074d1c-a6ac-4607-9f2c-279f2c1262e2/
 
-## 3. CC BY-SA 4.0 の採用
+---
 
-### 現行方針の良い点
+## 4. GitHub public repository と現在の権利状態
 
-`RIGHTS.md` は次を明確に分離している。
+### publicにすると何が起きるか
 
-- Moonnet Sagaに属するか
-- Canonか
-- GitHubで公開するか
-- CC BY-SA 4.0対象か
+GitHubの2026年版Terms of Serviceでは、public repositoryについて概ね次の権利関係が生じる。
 
-この分離は維持すべき。
+1. 他ユーザーはGitHub上で閲覧・Fork等を行える
+2. GitHubはサービス提供・開発・改善に必要な範囲で保存・表示・解析・複製等を行える
+3. 現行Termsでは、GitHubおよび関連会社のAI/MLモデル・技術の訓練、開発、改善も上記ライセンスの範囲に明示されている
+4. repositoryに別のライセンスを置けば、その追加権利を利用者へ与えられる
 
-### CC BY-SA 4.0で重要な点
+### All Rights Reservedとの関係
 
-Creative Commonsの公式リーガルコード上、CC BY-SA 4.0は全世界・無償・非独占かつ**取消不能**の許諾で、複製・共有・翻案物の作成と共有を認める。
+したがって `All Rights Reserved` は、
 
-一方で、次はCCの許諾対象外または別扱い。
+> GitHub Terms、法令上の権利制限、その他別途の許諾により認められる範囲を除き、一般公衆へ追加の再利用ライセンスを付与していない
 
-- 著作者人格権そのものはライセンスされない。ただし許諾された利用に必要な限定範囲で、可能な限り不行使等が規定される。
-- 商標権・特許権はライセンスされない。
-- プライバシー、パブリシティ等の人格権は別問題。
-- 法律上の権利制限により許諾不要な利用には、そもそもCC条件は適用されない。
-- 配布を後から停止しても、既に有効に与えたCCライセンス自体は終了しない。
+という意味で使うのが正確。
+
+これは現在の `RIGHTS.md` の趣旨と大きく矛盾しない。
+
+ただし、**GitHubへの契約上の利用許諾はすでに発生している**ため、過去の出版社等に強い独占権が残る作品では「All Rights Reservedだから安全」とはならない。
+
+### 評価
+
+**Medium as documentation / potentially High if an old contract is exclusive**
+
+### 推奨追記
+
+将来 `RIGHTS.md` を直す際は、次の趣旨を一文追加するとよい。
+
+> Public availability on GitHub does not grant a general open-content license. Rights necessary for GitHub and its users to operate and use GitHub's service features are governed separately by GitHub's Terms of Service.
+
+公式資料:
+
+- GitHub Terms of Service: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service
+- GitHub Licensing a repository: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
+
+---
+
+## 5. CC BY-SA 4.0
+
+### Moonnet Sagaとの相性
+
+CC BY-SA 4.0は次を認める。
+
+- 複製・再配布
+- 改変・翻案
+- 商用利用
+- あらゆる媒体・形式での利用
+
+条件は主に、
+
+- Attribution
+- ShareAlike
+- 追加的な法的・技術的制限を課さないこと
+
+であり、「人間とAIが読み継ぎ、派生創作し、商用利用もできるfictional commons」という目標とは相性がよい。
+
+### 不可逆性
+
+CC BY-SA 4.0は取消不能。
+
+作者が後で配布を停止することはできるが、既に適法にCCライセンスを受けた人は、その条件で利用を継続できる。
+
+### CCが処理しないもの
+
+CC BY-SA 4.0は万能な「IP全部入り」ライセンスではない。
+
+- 商標権・特許権は許諾対象外
+- 著作者人格権そのものはライセンスされない
+  - ただし許諾された利用に必要な限定範囲で、権利者は可能な限り不行使等を行う仕組み
+- 第三者のプライバシー、パブリシティ等は別問題
+- 法律上の権利制限で許諾不要な利用にはCC条件自体が適用されない
+
+### 推奨方式
+
+リポジトリ全体へ一括適用せず、対象を明示する。
+
+例:
+
+```text
+License status:
+- works/takashi/text.md: CC BY-SA 4.0 (effective YYYY-MM-DD)
+- world/works/takashi.md: CC BY-SA 4.0 (effective YYYY-MM-DD)
+- README / governance docs: separate status
+- third-party quotations/materials: excluded
+```
+
+最低限、次を示す。
+
+- 対象作品
+- 対象版
+- 対象ファイル
+- 発効日
+- 除外物
+- 推奨クレジット
+- 商標は対象外
+- Saga status / Canon statusとは別であること
 
 ### 評価
 
 **Medium now / High at activation**
 
-CC BY-SA 4.0自体は「人間・AIが再利用し、商用派生作品も作れる共有創作宇宙」というMoonnet Sagaの目標と整合しやすい。ただし、一括でリポジトリ全体に適用するより、**権利確認済み作品・設定を明示的に列挙して段階的に適用する**方が安全。
-
-### 推奨方式
-
-将来の移行時は少なくとも次を明示する。
-
-- ライセンス開始日
-- 対象ファイル／対象作品／対象版
-- 対象外ファイル
-- 第三者素材の除外
-- 推奨クレジット表記
-- Canon statusとは無関係であること
-- 商標・ブランドの扱い
-
 公式資料:
 
-- CC BY-SA 4.0 Legal Code 日本語: https://creativecommons.org/licenses/by-sa/4.0/legalcode.ja
-- CC BY-SA 4.0 Legal Code 英語: https://creativecommons.org/licenses/by-sa/4.0/legalcode.en
+- CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+- Legal Code: https://creativecommons.org/licenses/by-sa/4.0/legalcode.en
+- Creative Commons FAQ: https://creativecommons.org/faq/
+- CC License Your Work: https://creativecommons.org/cc-license-your-work/
 
-## 4. GitHub public repository と All Rights Reserved
+---
 
-GitHubの公式Termsでは、public repositoryにすると、他のGitHubユーザーに対し、GitHubの機能を通じた閲覧、表示、実演、Forkによる複製等を許可するライセンスが発生する。追加の権利は別途ライセンスで与えることができる。
+## 6. 著作者人格権
 
-したがって、現在の **All Rights Reserved** は概ね妥当だが、厳密には「GitHub Termsにより必要な範囲の権利を除き、追加の一般利用許諾はしていない」という状態。
+日本の著作権法上、著作者人格権には公表権、氏名表示権、同一性保持権等があり、一身専属で譲渡できない。
 
-### 評価
+CC BY-SA 4.0は人格権そのものを移転するわけではなく、ライセンス利用に必要な限定範囲で可能な限り不行使等をする構造。
 
-**Medium wording risk, not an emergency**
+Moonnet Sagaでは、原作者と異なる価値観、成人向け、政治的、宗教的表現等を含むbranchも許容する将来像をすでにREADMEに書いている。
 
-`RIGHTS.md` の趣旨と大きな矛盾はない。ただし将来の誤解を減らすなら、一文だけ補足してもよい。
+これは十分に意識的な設計だが、実際にCC化する前に作者が、
 
-例:
+- 大幅な改変
+- キャラクター性格の変更
+- 原作と逆の政治的・宗教的主張
+- 成人向け化
+- 商用広告への利用
 
-> Public availability on GitHub does not by itself grant an open-content license beyond the rights necessary to use GitHub's service features under GitHub's Terms of Service.
+等もCC BY-SAの範囲で起こり得ることを理解した上で採用する必要がある。
 
-公式資料:
-
-- GitHub Terms of Service: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service
-- GitHub Docs「Licensing a repository」: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
-
-## 5. READMEの「Open Story IP」表現
-
-現在のREADMEは、オープン化が将来構想であることを複数箇所で明記しており、全体としては誤認防止ができている。
-
-ただし次のコピーは単独で切り取ると、現時点ですでに派生利用を許諾しているようにも読める。
-
-> Read it. Fork it. Build your own branch.
-
-直後に「現時点ではまだオープンライセンスへの移行前」と書かれているため重大ではないが、SNSや検索結果等で一部だけ引用される可能性を考えると、将来的には `Future vision:` 等を付けるか、オープン化後に本格利用するコピーとして予約する方法もある。
-
-### 評価
-
-**Medium / documentation clarity**
-
-## 6. AI利用と著作権
-
-文化庁の「AIと著作権に関する考え方について」は、AI学習・生成のすべてを一律にライセンス問題として扱っていない。
-
-日本の著作権法第30条の4等の権利制限が適用され、許諾を要しない利用であれば、CCライセンスを付けていても、その利用をCC条件で拘束するわけではない。Creative Commonsのリーガルコード自体も、権利制限が適用される利用についてCC条件への遵守は不要としている。
-
-また文化庁は、AI生成物の著作物性について、人の創作意図と創作的寄与を総合的に判断する必要があると説明している。
-
-したがって将来の説明では、
-
-- 「CC BY-SAだからAI学習は可能」
-- 「AIが使ったら必ずShareAlikeになる」
-
-のような単純化は避ける。
-
-### 評価
-
-**Low now / Medium for future guidance**
-
-公式資料:
-
-- 文化庁「AIと著作権について」: https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html
-- 「AIと著作権に関する考え方について」令和6年3月15日
-- 文化庁FAQ: https://www.bunka.go.jp/seisaku/chosakuken/kaizoku/faq.html
-
-2026年時点でも政府はAI時代の知財保護・透明性について追加検討を進めており、今後制度・実務が更新される可能性が高い。ライセンス発動時には最新状況を再確認する。
-
-## 7. 外部Contribution
-
-現時点のリポジトリには `CONTRIBUTING.md` がなく、第三者の創作的Contributionを受け入れる権利処理ルールもまだない。
-
-GitHub Termsでは、ライセンス表示のあるrepositoryへContentを追加すると、原則そのrepositoryのライセンス条件でContributionする仕組みがある。しかし、Moonnet Sagaのように「Canon採用」「再ライセンス」「将来の商用利用」「著作者人格権」「作品単位でライセンス範囲を変える」可能性があるプロジェクトでは、GitHub Termsだけに依存せず、Contributor向けルールを明示する方がよい。
-
-### 外部Contribution開始前に決めること
-
-- PRで受け付ける対象（誤字修正／設定／物語／画像等）
-- 投稿者が必要な権利を有することの表明
-- Contributionに適用されるライセンス
-- Canon採用の有無とは無関係であること
-- クレジット方法
-- 第三者素材の禁止または表示方法
-- 必要ならCLAを採用するか
-
-### 評価
-
-**Medium before accepting creative PRs**
-
-当面、外部から創作本文や設定のPRを積極募集しないなら緊急ではない。
-
-## 8. 著作者人格権
-
-日本の著作権法では著作者人格権は著作者に一身専属し、譲渡できない。CC BY-SA 4.0も人格権そのものを移転するものではなく、許諾された利用に必要な限定範囲について可能な限り不行使等を規定する。
-
-Moonnet Sagaでは、第三者が原作と大きく異なる価値観・成人向け・政治的・宗教的表現等を含むbranchを作る可能性をREADMEに明記している。この方向性自体はCCの`No endorsement`とも整合するが、将来実際にオープン化する際には、作者が「どこまでの改変を許容するか」ではなく、**CC BY-SAが許す改変を理解した上で採用する**必要がある。
+**「気に入らない改変だけ後から禁止する」ライセンスにはならない。**
 
 ### 評価
 
 **Medium / author decision before activation**
 
-## 9. 商標・名称
+法令:
 
-### 調査結果
+- e-Gov 著作権法 第18〜20条、第59条
+- https://laws.e-gov.go.jp/law/345AC0000000048
 
-通常のWeb検索では、2026-08-29時点で「Moonnet Saga」「ムーンネットサーガ」について同一の著名サービス・作品シリーズは確認できなかった。
+---
 
-一方、`MOONNET` / `ムーンネット` 単独では、国内外で会社名・商品名・技術名等として利用例が存在する。このため「Moonnet」という語だけを独占できる、または安全に登録できるとは判断できない。
+## 7. AI利用
 
-J-PlatPatの商標検索画面自体は確認できたが、この調査環境から動的検索結果を信頼できる形で取得できなかったため、**正式な先行商標検索は未完了**。
+### 日本法とCCは別レイヤー
+
+文化庁は、AI学習・生成における著作物利用をすべて「著作権者のライセンスが必要」とは整理していない。
+
+著作権法第30条の4等の権利制限が適用される利用なら、CC BY-SAを根拠にしなくても利用できる場合がある。
+
+Creative Commonsのリーガルコードも、法令上の例外・権利制限が適用される場合にはCC条件に従う必要はないと明記する。
+
+したがって、将来の説明では、
+
+- 「CC BY-SAだからAI学習できる」
+- 「AIに読み込ませたら必ずShareAlike」
+- 「AI生成物は必ず著作物」
+
+のような単純化は避ける。
+
+### AI生成物の著作物性
+
+文化庁は、AIを人の創作の「道具」として利用したといえるかについて、
+
+- 創作意図
+- 人の創作的寄与
+
+等を総合的に判断する必要があるとしている。
+
+### GitHub自身のAI利用
+
+別論点として、現在のGitHub Termsでは、GitHubおよび関連会社がサービスの開発・改善のためAI/MLモデル等を訓練する権利が明記されている。
+
+これは「CC BY-SAを発効したから生じる」ものではなく、**public GitHubへ投稿する契約レイヤーで既に存在する**。
+
+Moonnet SagaはAI利用を歓迎する方向なので理念上は衝突しにくいが、権利管理上は把握しておく。
 
 ### 評価
 
-**Low now / Medium before branding investment or trademark filing**
+**Low now / Medium for future user guidance**
 
-### 推奨
+公式資料:
 
-J-PlatPatで少なくとも以下を検索する。
+- 文化庁「AIと著作権について」: https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html
+- 文化審議会「AIと著作権に関する考え方について」（令和6年3月15日）
+- 文化庁「AIと著作権に関するチェックリスト＆ガイダンス」（令和6年7月31日）
+- 文化庁 著作権分科会報告書等: https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/hokoku.html
+
+2026年時点でもAI・著作権政策は更新が続いているため、実際のオープンライセンス発効時に最新情報を再確認する。
+
+---
+
+## 8. 第三者Contribution
+
+現在は `CONTRIBUTING.md` やCLA等がない。
+
+GitHub Termsでは、repositoryにライセンス表示がある場合、原則としてContributionもそのライセンス条件で提供される。一方、現在のMoonnet-Sagaには一般公衆向けのオープンライセンスがない。
+
+この状態で第三者から創作的な、
+
+- 新規小説
+- キャラクター設定
+- 世界設定
+- 長文の改稿
+- イラスト等
+
+を受け取りマージすると、将来プロジェクト全体をCC BY-SAへ移行したくても、そのContributionを山田佳江単独の判断で再ライセンスできない可能性がある。
+
+### 現時点の推奨
+
+外部Contributionを積極募集する前に、次のどれかを決める。
+
+1. **Inbound = outbound**
+   - CC化後、Contributorも同じCC BY-SA 4.0で投稿
+2. **Contributor agreement**
+   - プロジェクトにCC BY-SA 4.0等で公開・再ライセンスする権利を明示的に許諾
+3. **創作的Contributionは受け付けず、誤字・リンク修正等に限定**
+
+DCO（Developer Certificate of Origin）は「投稿権限があること」の確認には使えるが、独自の再ライセンス権を自動的に与えるものではないため、目的に応じてCLA等と区別する。
+
+### 評価
+
+**Medium now / High before creative external contributions**
+
+---
+
+## 9. Canon / Saga / Public / License の4軸
+
+現在の設計では、少なくとも次の4状態を分離できている。
+
+|軸|意味|
+|---|---|
+|Saga status|Moonnet Sagaに属するか (`confirmed / possible / excluded`)|
+|Canon status|公式設定・公式作品として採用しているか|
+|Public status|本文や設定がpublic repositoryに置かれているか|
+|License status|CC BY-SA等の一般再利用ライセンス対象か|
+
+これは非常に良い。
+
+たとえば、
+
+- `possible` だが本文public
+- `confirmed` だが本文未公開
+- `confirmed` かつpublicだがAll Rights Reserved
+- `confirmed` / public / CC BY-SA
+
+を別々に表現できる。
+
+**この4軸を今後も統合しない。**
+
+---
+
+## 10. READMEの「Open Story IP」表現
+
+READMEは繰り返し「現在はオープンライセンス移行前」と明記しているため、全体としては安全側。
+
+ただし、
+
+> Read it. Fork it. Build your own branch.
+
+というコピーは、単独で検索結果やSNSに抜かれた場合、現時点でも二次創作を一般許諾済みと誤認される可能性がある。
+
+緊急修正ではないが、CC発効前は、
+
+> Future vision: Read it. Fork it. Build your own branch.
+
+等にするとより明確。
+
+### 評価
+
+**Low / Medium documentation clarity**
+
+---
+
+## 11. 商標・ブランド
+
+### Web上の簡易調査
+
+通常のWeb検索では、2026-08-29時点で、
+
+- `Moonnet Saga`
+- `ムーンネットサーガ`
+- `Open Story IP`
+
+について、同一の著名な作品シリーズ・サービスの完全一致は確認できなかった。
+
+ただし `MoonNet` / `MOONNET` 単独では、
+
+- AI/機械学習プロジェクト名
+- 海外企業名
+- 商品名
+- 過去のカード商品等
+
+複数の使用例がある。
+
+したがって、`Moonnet` 単独の独占可能性・登録可能性はこの調査から判断できない。
+
+### J-PlatPat
+
+特許庁はJ-PlatPatを使った先行商標調査を案内しているが、この調査環境からJ-PlatPatの動的な検索結果を証拠として安定取得できなかった。
+
+正式な商標クリアランスは未完了。
+
+最低限、次をJ-PlatPatの「商標（検索用）」および称呼検索で確認する。
 
 - Moonnet Saga
 - MOONNET SAGA
 - ムーンネットサーガ
 - Moonnet
+- MOONNET
 - ムーンネット
 - Open Story IP
 
-文字列完全一致だけでなく、称呼（類似検索）を使い、想定する商品・役務区分を確認する。
+実際に商標出願を検討する段階では、使用予定の商品・役務区分も含め弁理士確認が望ましい。
 
-特許庁案内:
+### 評価
 
-- https://www.jpo.go.jp/support/startup/shohyo_search.html
+**Low now / Medium before major branding investment**
+
+公式:
+
+- 特許庁「商標を検索してみましょう」: https://www.jpo.go.jp/support/startup/shohyo_search.html
 - J-PlatPat: https://www.j-platpat.inpit.go.jp/
 
-## 10. 第三者素材・引用
+---
 
-公開中の本文について、今回の調査では全文を一文ずつ既存著作物と照合するフォレンジックな引用監査は行っていない。
+## 12. 第三者素材・引用
 
-将来CC化する版については、次を作品単位で確認する。
+現在のGit treeにはMarkdown以外の画像・音声・フォント等は見当たらない。
+
+将来CC化する作品・資料については、作品単位で次を確認する。
 
 - 歌詞・詩・小説等からの引用
 - 他者の写真、イラスト、地図
 - 表紙・装丁
 - 編集者・共同作者による創作的文章
 - 実在人物の写真・肖像・プライバシー情報
-- 第三者が権利を持つ翻訳
+- 他者が権利を持つ翻訳
+- 外部資料から転記した設定説明
 
-単なる商品名・地名・一般的な固有名詞の登場だけを理由に除外する必要はないが、第三者著作物そのものを含む部分は別管理する。
+第三者素材を含む場合は、その部分をCC対象から明示的に除外することができる。
+
+Creative Commons自身も、ライセンサーが権利を持たない素材は明確にマークして除外することを推奨している。
 
 ### 評価
 
 **Medium before CC activation**
 
-## 11. 現状で直すべきか
+---
 
-### すぐ人間が確認すべき
+## 13. 現在のリポジトリに対する提案
 
-1. KDP Selectの現在の登録状態
-2. オルタニア掲載時の契約・募集要項・メール等の所在
+### すぐ確認する（人間の管理画面・手元資料が必要）
 
-### 文書として直すとよいが緊急ではない
+1. 『ワンダリングリング 山田佳江SF短編集』の現在のKDP Select状態
+2. オルタニア等の寄稿・掲載条件の所在
+3. 公開中5作について、独占的な電子配信・出版権が残っていないか
 
-1. GitHub TermsによるFork等の扱いをRIGHTSに一文追記
-2. `Read it. Fork it. Build your own branch.` を将来構想とより明確に紐付ける
-3. 外部Contribution開始前に `CONTRIBUTING.md` を用意
+### GitHubだけで後から改善できる
+
+1. `RIGHTS.md` にGitHub Termsとの関係を一文追記
+2. `Read it. Fork it. Build your own branch.` を将来構想と明示
+3. 外部Contributionを始める前に `CONTRIBUTING.md` を作成
+4. `WORKS.md` に将来 `License status` 列を追加
+5. CC発効時には対象作品・版・ファイルを列挙したmanifestを作る
 
 ### 今はしない
 
-- repository全体への `LICENSE` 追加
-- CC BY-SA 4.0の発効
-- `possible`作品を自動的にCC対象とすること
-- 契約未確認作品のオープン化
+- repository rootへCC BY-SAの `LICENSE` を置く
+- repository全体を一括CC化する
+- `possible` だから自動的にCC対象にする
+- 契約未確認作品をオープン化する
 
-## 12. 推奨ゲート
+---
 
-CC BY-SA 4.0を実際に発効する前に、以下の全条件を満たす。
+## 14. Open-license release gate
 
-- [ ] 対象作品の著作権・出版権・独占許諾を確認済み
+CC BY-SA 4.0を実際に発効する前に、次をすべて確認する。
+
+- [ ] 対象作品について著作権帰属を確認
+- [ ] 過去の出版権・独占利用許諾・電子配信権を確認
 - [ ] KDP Select等の独占条件と衝突しない
-- [ ] 対象版を特定済み
-- [ ] 第三者素材を除外または別ライセンス表示済み
-- [ ] 作者が取消不能・商用利用・翻案・ShareAlikeを理解して選択済み
-- [ ] Canon statusとlicense statusを別表示
-- [ ] 商標はCC対象外と明記
-- [ ] attributionの推奨形式を用意
-- [ ] Contribution方針を決定
-- [ ] `RIGHTS.md` / README / 各作品READMEの表示が一致
-- [ ] 発効直前に最新の法制度・CC文面・配信契約を再確認
+- [ ] 対象版を特定
+- [ ] 対象ファイルを特定
+- [ ] 第三者素材を除外または個別表示
+- [ ] 作者が取消不能・商用利用・翻案・ShareAlikeを理解して選択
+- [ ] Canon / Saga / Public / License statusを別管理
+- [ ] 商標・ブランドはCC対象外と明示
+- [ ] attribution推奨形式を決定
+- [ ] 外部Contribution方針を決定
+- [ ] README / RIGHTS / WORKS / 各作品READMEの表示を一致
+- [ ] 発効日を記録
+- [ ] 発効直前に法制度・GitHub Terms・販売契約を再確認
+
+詳細な作業用チェックリストは [`open-license-checklist.md`](open-license-checklist.md) を参照。
+
+---
 
 ## Sources
 
 一次資料・公式資料を優先した。
 
+### 日本法・AI
+
 - e-Gov 著作権法: https://laws.e-gov.go.jp/law/345AC0000000048
 - 文化庁「AIと著作権について」: https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html
-- 文化庁「AIと著作権に関する考え方について」関連資料: https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/hokoku.html
-- Creative Commons BY-SA 4.0 Legal Code (JA): https://creativecommons.org/licenses/by-sa/4.0/legalcode.ja
-- Creative Commons BY-SA 4.0 Legal Code (EN): https://creativecommons.org/licenses/by-sa/4.0/legalcode.en
-- GitHub Terms of Service: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service
-- GitHub Licensing a repository: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
-- Amazon KDP Select: https://kdp.amazon.co.jp/ja_JP/select
-- Amazon KDP Select requirements: https://kdp.amazon.co.jp/ja_JP/help/topic/GD9PMU58BV24QFZ7
+- 文化庁 著作権分科会 報告・答申等: https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/hokoku.html
+
+### Creative Commons
+
+- CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+- Legal Code: https://creativecommons.org/licenses/by-sa/4.0/legalcode.en
+- FAQ: https://creativecommons.org/faq/
+- License Your Work: https://creativecommons.org/cc-license-your-work/
+
+### GitHub
+
+- Terms of Service: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service
+- Licensing a repository: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
+
+### Amazon KDP
+
+- KDP Select: https://kdp.amazon.com/en_US/select
+- How to enroll in KDP Select: https://kdp.amazon.com/en_US/help/topic/GD9PMU58BV24QFZ7
+- KDP Terms and Conditions: https://kdp-eu.amazon.com/agreement
+- Read Sample: https://kdp.amazon.com/en_US/help/topic/G200644250
+- Kindle Content Quality: https://kdp.amazon.com/en_US/help/topic/G200952510
+- Intellectual Property Rights FAQ: https://kdp.amazon.com/en_US/help/topic/G200672400
+
+### 商標
+
 - 特許庁「商標を検索してみましょう」: https://www.jpo.go.jp/support/startup/shohyo_search.html
+- J-PlatPat: https://www.j-platpat.inpit.go.jp/
 
-補助的な公開確認:
-
-- BCCKS オルタニア vol.7: https://bccks.jp/bcck/157010/info
-- BOOK☆WALKER オルタニア vol.7: https://bookwalker.jp/de0e074d1c-a6ac-4607-9f2c-279f2c1262e2/
+---
 
 ## 調査上の限界
 
-- 非公開の出版契約書・メール・KDP管理画面は確認していない。
-- J-PlatPatの正式な類似商標検索結果は取得できていない。
-- 各小説本文について、第三者著作物との逐語的な網羅照合はしていない。
-- 海外各国の著作権法を国別に精査していない。
+- 非公開の出版契約書、メール、DMは確認していない
+- KDP管理画面の現在のSelect登録状態は確認していない
+- KDPの「外部サンプル約10%」について、現行公開契約本文には数値規定が見つからないため、確実なsafe harborとして扱っていない
+- J-PlatPatの正式な類似商標検索結果は取得できていない
+- 各小説本文を既存著作物と逐語的・網羅的に照合する引用監査はしていない
+- 海外各国の著作権法を国別に精査していない
 
-したがって、最も重要な次の一手は**ライセンス変更ではなく、KDP状態と過去契約の事実確認**である。
+このため、本調査の次の一手は**ライセンス変更ではなく、作品ごとの権利事実を埋めること**である。
