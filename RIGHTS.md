@@ -2,18 +2,18 @@
 
 Copyright © Yoshie Yamada / 山田佳江. All rights reserved.
 
-Moonnet Atlas is currently published as a public reference repository, but **no open license is granted at this time**.
+This repository is currently published as the public reference hub for **Moonnet Saga**, but **no open license is granted at this time**.
 
 ## Current policy
 
 - The works, settings, terminology, worldbuilding, and other original materials recorded in this repository remain copyrighted by 山田佳江.
 - Quotation, citation, criticism, review, academic reference, and similar uses are welcome where permitted by applicable law.
-- When quoting or referring to this repository, attribution to 山田佳江 / Moonnet Atlas and a link to the relevant source are appreciated.
+- When quoting or referring to this repository, attribution to 山田佳江 / Moonnet Saga and a link to the relevant source are appreciated.
 - Publication of substantial reproductions, redistribution of the repository contents, adaptations, derivative works, commercial reuse, or other uses beyond applicable legal exceptions are not licensed unless separately authorized.
 
 ## Proposed open-universe direction
 
-Moonnet Atlas is considering a future transition to **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)** for materials whose rights are fully controlled by Yoshie Yamada.
+Moonnet Saga is considering a future transition to **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)** for materials whose rights are fully controlled by Yoshie Yamada.
 
 The goal is not simply to make the texts free to read. The larger idea is to make the Moonnet Saga a reusable fictional commons that can continue to branch through human and AI creativity.
 
@@ -50,9 +50,9 @@ A voluntary support link (for example, a coffee / Ko-fi button) may coexist with
 
 ---
 
-このリポジトリは公開されていますが、**現時点ではオープンライセンスを設定していません**。
+このリポジトリは **Moonnet Saga（ムーンネットサーガ）** の公開リファレンスとして運用していますが、**現時点ではオープンライセンスを設定していません**。
 
-作品、設定、用語、世界観その他の創作物の著作権は山田佳江に帰属します。法令上認められる範囲での引用・批評・紹介・研究等は歓迎します。引用・参照時には、可能であれば山田佳江／Moonnet Atlas のクレジットと参照元へのリンクを添えてください。
+作品、設定、用語、世界観その他の創作物の著作権は山田佳江に帰属します。法令上認められる範囲での引用・批評・紹介・研究等は歓迎します。引用・参照時には、可能であれば山田佳江／Moonnet Saga のクレジットと参照元へのリンクを添えてください。
 
 全文または相当量の転載、再配布、改変、二次創作、商用利用その他の利用については、法令上の例外を除き、別途許諾がない限り利用許諾を行っていません。
 
@@ -60,7 +60,7 @@ A voluntary support link (for example, a coffee / Ko-fi button) may coexist with
 
 将来的には、山田佳江が必要な権利を単独で保有している作品・設定資料等について、**Creative Commons Attribution-ShareAlike 4.0 International（CC BY-SA 4.0）** を基本ライセンスとして公開する方向を検討しています。
 
-目的は単に「無料で読める小説」にすることではありません。ムーンネットサーガを、人間とAIの双方が読み継ぎ、使い、分岐させ、新しい物語へ育てられる **fictional commons / 共有創作宇宙** として開くことを構想しています。
+目的は単に「無料で読める小説」にすることではありません。Moonnet Saga を、人間とAIの双方が読み継ぎ、使い、分岐させ、新しい物語へ育てられる **fictional commons / 共有創作宇宙** として開くことを構想しています。
 
 想定している利用には、たとえば次のようなものがあります。
 
@@ -74,7 +74,7 @@ A voluntary support link (for example, a coffee / Ko-fi button) may coexist with
 
 オープン化しても、すべての派生作品が公式Canonになるわけではありません。
 
-- 山田佳江が公式作品・公式設定として指定したものを、ムーンネットサーガのCanonとします。
+- 山田佳江が公式作品・公式設定として指定したものを、Moonnet Saga のCanonとします。
 - 他の創作者は、ライセンスの範囲内で自由に独自branchを作れます。
 - Canonと矛盾するbranchが存在してもかまいません。
 - branchを公式Canonへ取り込むかどうかは、別途方針を定めない限り山田佳江が判断します。
