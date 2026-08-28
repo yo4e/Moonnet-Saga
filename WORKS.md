@@ -4,6 +4,31 @@
 
 年代は厳密な年表ではなく、作者の現時点の感覚を含む相対的な位置づけ。新しい作品によって更新されることがある。
 
+## Corpus連携・簡易作品一覧
+
+Yoshie Yamada Corpus と共有する運用上の簡易分類。
+
+- `confirmed` — 確実にMoonnet Saga
+- `possible` — Moonnet Sagaかもしれない／作者記憶や作品上の接続可能性がある
+- `excluded` — 確実にMoonnet Sagaではない
+- `—` — まだ分類していない。4つ目の分類ではなく未判定状態
+
+**`confirmed` と `possible` の作品本文は、権利・版を確認したうえでこのリポジトリの `works/` に収録する。** `possible` のまま収録してよい。作品をこのリポジトリへ収録すること、公式Canonとすること、CC BY-SA等のオープンライセンス対象とすることは、それぞれ別の判断として扱う。
+
+|作品名|Moonnet Saga|Saga本文|備考|
+|---|---|---|---|
+|マイニングファームにて|possible|[`works/mining-farm-nite/mining-farm-nite.md`](works/mining-farm-nite/mining-farm-nite.md)|年代・ユニバース等は未確定|
+|アウトサイドフィールズ|possible|未収録|2026-08-28 作者記憶ベース、留保あり。Corpus PR #2で収集中|
+|いいじいえいあい|possible|未収録|2026-08-28 作者記憶ベース、留保あり。Corpus PR #2で収集中|
+|砂糖楓|—|未収録|未判定|
+|タカシ|confirmed|[`works/takashi/takashi.md`](works/takashi/takashi.md)|本文にムーンネットとの明示的接続あり|
+|虚偽記憶の共犯者|—|未収録|未判定|
+|おとなになれないきみたちとふたたび|—|未収録|未判定|
+|昂奮ブロマイド|—|未収録|未判定|
+|ワンダリングリング|possible|未収録|2026-08-28 作者記憶ベース、留保あり。Corpus PR #2で収集中|
+
+詳細な書誌・原稿管理は private の Yoshie Yamada Corpus 側で保持し、このリポジトリではSagaとの関係と公開対象を中心に記録する。
+
 ## 『アンフォールドザワールド』
 
 - status: existing work / saga connection under consideration
@@ -44,7 +69,7 @@
 
 ## 『マイニングファームにて』
 
-- status: existing short fiction / saga inclusion author-note
+- status: existing short fiction / possible
 - repository text: [`works/mining-farm-nite/mining-farm-nite.md`](works/mining-farm-nite/mining-farm-nite.md)
 - approximate era: unknown
 - key observation: ファイトマイニングを行う農場と、そこに常駐する人間の管理人・フィジカルAIが登場する。
@@ -54,7 +79,7 @@
 
 ## 『タカシ』
 
-- status: existing short fiction
+- status: existing short fiction / confirmed
 - repository text: [`works/takashi/takashi.md`](works/takashi/takashi.md)
 - approximate era: 2100年より後くらい（author-note）
 - key observation: ムーンネット創始者の孫「タカシクロダ」の細胞から、最初の「末裔」が作られ、その後同じ細胞から複数パターンの末裔がバイオプリンティングされる。
@@ -66,10 +91,12 @@
 
 ## 『ワンダリングリング　山田佳江SF短編集』収録作群
 
-- status: existing short-story collection / saga inclusion author-note
-- key observation: 作者の現時点の認識では、収録作はすべてムーンネットサーガとして扱える可能性が高い。
-- handling: 現段階では短編集単位で登録し、収録作名・各作の年代・世界・ユニバース・ムーンネットとの接続は、本文や目次を確認できたものから個別に追記する。
-- note: 各作品が同一ユニバースに属するとは限らない。ムーンネットが直接登場しない作品も、同じ多元宇宙／世界史の観測点としてサーガに含めうる。
+- status: existing short-story collection / mixed Saga relation
+- confirmed: 『タカシ』
+- possible: 『アウトサイドフィールズ』『いいじいえいあい』『ワンダリングリング』
+- unclassified: 『砂糖楓』『虚偽記憶の共犯者』『おとなになれないきみたちとふたたび』『昂奮ブロマイド』
+- handling: `confirmed` / `possible` はCorpusから本文を順次収録する。未判定作品は本文や作者記憶を確認してから分類する。
+- note: 各作品が同一ユニバースに属するとは限らない。ムーンネットが直接登場しない作品も、多元宇宙上の別世界／別時代の観測点としてSagaへ接続しうる。
 
 ## Notes
 
