@@ -12,6 +12,16 @@
 
 Moonnet Saga は、単に「読むための小説シリーズ」だけではなく、**人間とAIの双方が新しい作品を生み出すために利用できる Open Story IP** へ育てていくことを目指しています。
 
+### Open Story IP とは
+
+このプロジェクトでは **Open Story IP** を、**権利者が指定した物語・世界設定・キャラクター・用語・関連データ等をオープンライセンスで公開し、第三者が明示された条件のもとで再利用・改変・再配布・派生創作・商用展開できる物語IP** と定義します。人間による創作だけでなく、AIをコンテキスト、Lorebook、キャラクターデータ、生成支援等に利用する創作も想定します。
+
+> **Open Story IP:** a fictional IP whose designated stories, worldbuilding, characters, terminology, and related data are intentionally opened by the rights holder so that others — including AI-assisted creators — can reuse, adapt, redistribute, and build commercial or non-commercial derivative works under an explicit open license.
+
+これは現時点で確立された業界標準用語であると主張するものではなく、**Moonnet Saga がこの構想を表すために用いるプロジェクト上の定義**です。
+
+**Concept definition: Yoshie Yamada / Moonnet Saga — 2026-08-28**
+
 将来的にCC BY-SA 4.0の対象として明示された作品・設定については、この世界を素材として、小説、漫画、イラスト、映像、音楽、ゲーム、翻訳、スピンオフ、別世界線などの派生作品を制作できる形を想定しています。ライセンス条件を満たす限り、商用利用も可能にする方針です。
 
 AIによる利用も想定しています。たとえば、世界設定や人物情報をAIのコンテキストとして読み込ませる、Lorebookやキャラクターデータを作る、設定をもとに新しい物語・ゲーム・会話体験を生成するといった使い方です。
