@@ -1,9 +1,10 @@
 # タカシ
 
 - 著者: 山田佳江
-- 正本: [タカシ　山田佳江　オルタニア7号　提出用](https://docs.google.com/document/d/1ponSL-v4HsSwORUwyDwuC-GmOGetOm46SbEbP7r9nRw/edit?usp=drivesdk)
-- 正本種別: Googleドキュメント（オルタニア7号 提出時原稿）
-- note: このMarkdownは正本から作成したCorpus用の機械可読転記。正本ではない。本文の文字列、段落頭の全角一字下げ、会話文、場面区切りを可能な限りそのまま保持する。
+- 初出: 『SF雑誌オルタニア vol.7［後継種］』（2018年12月）
+- 公開・販売: [BOOK☆WALKER](https://bookwalker.jp/de0e074d1c-a6ac-4607-9f2c-279f2c1262e2/)
+- Moonnet Saga: Canon
+- ライセンス: [RIGHTS.md](../../RIGHTS.md) を参照
 
 ---
 
