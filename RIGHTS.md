@@ -37,13 +37,16 @@ A work whose connection to Moonnet Saga is provisional or under consideration is
 
 Third-party illustrations, quotations, commissioned materials, contractual publications, or other content with separate rights may also be excluded or treated separately.
 
-### Canon and branches
+### Canon, branches, and non-endorsement
 
-Opening the universe does **not** mean that every derivative work becomes official canon.
+Opening the universe does **not** mean that every derivative work becomes official canon or that the original author endorses every branch.
 
 - Works and settings explicitly designated by Yoshie Yamada remain the official Moonnet Saga canon.
 - Anyone may create independent branches and derivative works under the applicable license.
 - A derivative branch may remain independent even if it contradicts canon.
+- Derivative works may contain viewpoints, themes, or forms of expression that differ substantially from those of Yoshie Yamada or official Moonnet Saga works, subject to applicable law, license terms, and relevant platform or service rules.
+- The existence of a derivative work does **not** imply approval, recommendation, sponsorship, or endorsement by Yoshie Yamada or Moonnet Saga.
+- Creators of derivative branches are responsible for the content, publication, and distribution of their own works.
 - Inclusion into official canon remains an editorial decision by Yoshie Yamada unless a future policy explicitly says otherwise.
 
 In Git-like terms: **forking is welcome; merging into canon is selective.**
@@ -90,13 +93,16 @@ A voluntary support link (for example, a coffee / Ko-fi button) may coexist with
 
 他者によるイラスト、引用、依頼制作物、契約上の制約がある出版物など、山田佳江が必要な権利を単独で保有していないものも、除外または別扱いとします。
 
-### Canonとbranch
+### Canon・branch・非公認について
 
-オープン化しても、すべての派生作品が公式Canonになるわけではありません。
+オープン化しても、すべての派生作品が公式Canonになるわけではなく、また作者がすべてのbranchの内容に賛同することを意味しません。
 
 - 山田佳江が公式作品・公式設定として指定したものを、Moonnet Saga のCanonとします。
 - 他の創作者は、ライセンスの範囲内で自由に独自branchを作れます。
 - Canonと矛盾するbranchが存在してもかまいません。
+- 派生作品には、成人向け、暴力的、政治的、宗教的その他、山田佳江や公式Moonnet Saga作品とは大きく異なる価値観・主題・表現が含まれる可能性があります。これらは適用される法律、ライセンス条件、利用するサービス等の規約の範囲内で、各制作者が独立して制作するbranchとして扱います。
+- **派生作品の存在は、山田佳江またはMoonnet Sagaが、その内容・思想・表現を賛同、推奨、公認、後援していることを意味しません。**
+- 各branchの内容、公開、配布については、それぞれの制作者が責任を負います。
 - branchを公式Canonへ取り込むかどうかは、別途方針を定めない限り山田佳江が判断します。
 
 Git的にいえば、**forkは歓迎、Canonへのmergeは選択的**という考え方です。
