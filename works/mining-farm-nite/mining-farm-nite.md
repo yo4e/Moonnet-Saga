@@ -1,10 +1,9 @@
 # マイニングファームにて
 
 - 著者: 山田佳江
-- 正本: [マイニングファームにて　山田佳江　提出用](https://docs.google.com/document/d/1nIhl81A1k9ba9B5BALCfAVUl0mMZx4taO6uT0CcbLjM/edit?usp=drivesdk)
-- 正本種別: Googleドキュメント（文学フリマ頒布のオルタニア向け提出時原稿）
-- note: このMarkdownは正本から作成したCorpus用の機械可読転記。正本ではない。本文の文字列、段落頭の全角一字下げ、会話文、場面区切り、提出稿末尾の作者コメントを可能な限りそのまま保持する。
-- issue / volume: 未確認
+- 初出: 確認中
+- Moonnet Saga: connection under consideration
+- ライセンス: [RIGHTS.md](../../RIGHTS.md) を参照
 
 ---
 
