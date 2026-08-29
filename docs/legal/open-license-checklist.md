@@ -23,6 +23,9 @@ Moonnet Sagaの作品・設定をCC BY-SA 4.0等で実際にオープン化す�
 - [ ] 作品ごとにSaga statusを確認
 - [ ] Canonかどうかを別途確認
 - [ ] `possible`だから自動的に対象にしない
+- [ ] **商業出版社から商業出版として刊行された作品を対象から除外する**
+
+Moonnet Sagaの現在の運用方針では、商業出版作品は本文収録・オープンライセンス対象にしない。必要なら書誌・世界観上の参照だけを行う。
 
 ### 版
 
@@ -50,8 +53,15 @@ Moonnet Sagaの作品・設定をCC BY-SA 4.0等で実際にオープン化す�
 - [ ] 公衆送信・電子配信の契約を確認
 - [ ] 契約期間を確認
 - [ ] 権利返還・契約終了がある場合、証拠を保存
-- [ ] オルタニア等の寄稿条件を確認
+- [ ] 掲載媒体への確認状況を確認
 - [ ] KDP / Kindle関連の条件を確認
+
+### 既知の確認状況
+
+- [x] **SF雑誌オルタニア — 2026-08-28、編集部・関係メンバーの許諾確認済み（作者確認）**
+- [ ] **SF雑誌「ガンズ」 — 『アンフォールドザワールド』について作者が確認予定**
+
+日付付きの詳細は [`author-confirmations.md`](author-confirmations.md) を参照。
 
 判断が難しい契約文言:
 
@@ -222,3 +232,4 @@ excluded:
 
 - [`legal-risk-audit.md`](legal-risk-audit.md)
 - [`works-rights-matrix.md`](works-rights-matrix.md)
+- [`author-confirmations.md`](author-confirmations.md)
